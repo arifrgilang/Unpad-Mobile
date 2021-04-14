@@ -5,8 +5,8 @@ apply from: Dependencies.common
 dependencies {
 
     // App Moduled
-//    implementation project(Dependencies.Module.domain)
-//    implementation project(Dependencies.Module.data)
+    implementation project(Dependencies.Module.domain)
+    implementation project(Dependencies.Module.data)
     implementation project(Dependencies.Module.presentation)
 
     // Multidex

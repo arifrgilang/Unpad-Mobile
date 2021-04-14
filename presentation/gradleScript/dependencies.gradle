@@ -6,7 +6,7 @@ dependencies {
     implementation Dependencies.Kotlin.kotlin_script
 
     //Modules
-//    implementation project(Dependencies.Module.domain)
+    implementation project(Dependencies.Module.domain)
 
     //Android X
     implementation Dependencies.AndroidX.appcompat

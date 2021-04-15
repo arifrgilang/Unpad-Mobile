@@ -27,10 +27,22 @@ android {
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-//            buildConfigField "String", "BASE_URL", String.format("\"%s\"", baseUrl)
+            buildConfigField "String", "BASE_URL_PAUS", String.format("\"%s\"", baseUrlPaus)
+            buildConfigField "String", "BASE_URL_SIAT", String.format("\"%s\"", baseUrlSiat)
+            buildConfigField "String", "CLIENT_ID", String.format("\"%s\"", clientId)
+            buildConfigField "String", "CLIENT_SECRET", String.format("\"%s\"", clientSecret)
+            buildConfigField "String", "REDIRECT_URI", String.format("\"%s\"", redirectUri)
+            buildConfigField "String", "PAUS_SCOPE", String.format("\"%s\"", scope)
+            buildConfigField "String", "PAUS_GRANT_TYPE", String.format("\"%s\"", grantType)
         }
         debug {
-//            buildConfigField "String", "BASE_URL", String.format("\"%s\"", baseUrl)
+            buildConfigField "String", "BASE_URL_PAUS", String.format("\"%s\"", baseUrlPaus)
+            buildConfigField "String", "BASE_URL_SIAT", String.format("\"%s\"", baseUrlSiat)
+            buildConfigField "String", "CLIENT_ID", String.format("\"%s\"", clientId)
+            buildConfigField "String", "CLIENT_SECRET", String.format("\"%s\"", clientSecret)
+            buildConfigField "String", "REDIRECT_URI", String.format("\"%s\"", redirectUri)
+            buildConfigField "String", "PAUS_SCOPE", String.format("\"%s\"", scope)
+            buildConfigField "String", "PAUS_GRANT_TYPE", String.format("\"%s\"", grantType)
         }
     }
     compileOptions {

@@ -1,7 +1,9 @@
 package com.arifrgilang.presentation.util
 
+import android.content.Context
 import android.view.View
 import android.widget.Button
+import android.widget.Toast
 
 
 /**
@@ -21,4 +23,8 @@ fun Button.enable() {
 
 fun Button.disable() {
     isEnabled = false
+}
+
+fun Context.toast(text: String) {
+    Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
 }

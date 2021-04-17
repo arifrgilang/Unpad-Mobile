@@ -21,9 +21,6 @@ import retrofit2.Retrofit
 @FlowPreview
 @ExperimentalCoroutinesApi
 val dataModule = module {
-    single {
-        get<Retrofit>().create(PausApi::class.java)
-    }
 
     single<PausTokenResponseToRepositoryModelMapper> {
         PausTokenResponseToRepositoryModelMapperImpl()

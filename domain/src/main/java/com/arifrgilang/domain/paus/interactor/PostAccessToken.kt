@@ -10,29 +10,29 @@ import kotlinx.coroutines.flow.Flow
  */
 interface PostAccessToken {
     suspend fun execute(
-            grantType: String,
-            redirectUri: String,
-            code: String,
-            clientId: String,
-            clientSecret: String
+        grantType: String,
+        redirectUri: String,
+        code: String,
+        clientId: String,
+        clientSecret: String
     ): Flow<PausTokenDomainModel>
 }
 
 class PostAccessTokenImpl(
-        private val pausRepository: PausRepository
+    private val pausRepository: PausRepository
 ) : PostAccessToken {
     override suspend fun execute(
-            grantType: String,
-            redirectUri: String,
-            code: String,
-            clientId: String,
-            clientSecret: String
+        grantType: String,
+        redirectUri: String,
+        code: String,
+        clientId: String,
+        clientSecret: String
     ): Flow<PausTokenDomainModel> =
-            pausRepository.getAccessToken(
-                    grantType,
-                    redirectUri,
-                    code,
-                    clientId,
-                    clientSecret
-            )
+        pausRepository.getAccessToken(
+            grantType,
+            redirectUri,
+            code,
+            clientId,
+            clientSecret
+        )
 }

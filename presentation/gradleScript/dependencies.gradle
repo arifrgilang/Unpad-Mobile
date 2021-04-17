@@ -9,6 +9,7 @@ dependencies {
     implementation project(Dependencies.Module.domain)
 
     //Android X
+    implementation Dependencies.AndroidX.browser
     implementation Dependencies.AndroidX.appcompat
     implementation Dependencies.AndroidX.materialDesign
     implementation Dependencies.AndroidX.constraintlayout
@@ -38,4 +39,7 @@ dependencies {
     implementation Dependencies.Glide.glide
     implementation Dependencies.Glide.glideLegacy
     kapt Dependencies.Glide.glideKapt
+
+    // Timber
+    implementation Dependencies.Timber.timber
 }

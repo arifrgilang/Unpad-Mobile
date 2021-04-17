@@ -14,7 +14,5 @@ data class PausTokenResponse (
     @SerializedName("expires_in")
     val expiresInSeconds: Int,
     @SerializedName("token_type")
-    val tokenType: String,
-    @SerializedName("scope")
-    val scopes: List<String>,
+    val tokenType: String
 )

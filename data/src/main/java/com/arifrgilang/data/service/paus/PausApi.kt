@@ -18,5 +18,5 @@ interface PausApi {
         @Field("code") code: String,
         @Field("client_id") clientId: String,
         @Field("client_secret") clientSecret: String
-    ) : PausTokenResponse
+    ): PausTokenResponse
 }

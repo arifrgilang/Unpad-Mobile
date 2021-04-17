@@ -10,6 +10,5 @@ data class PausTokenRepositoryModel (
     val accessToken: String,
     val refreshToken: String,
     val expiresInSeconds: Int,
-    val tokenType: String,
-    val scopes: List<String>,
+    val tokenType: String
 )

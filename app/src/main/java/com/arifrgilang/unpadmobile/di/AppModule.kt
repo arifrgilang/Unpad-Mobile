@@ -3,7 +3,7 @@ package com.arifrgilang.unpadmobile.di
 import com.arifrgilang.data.service.paus.PausApi
 import com.arifrgilang.data.service.paus.PausAuthInterceptor
 import com.arifrgilang.data.service.paus.PausRetrofitFactory
-import com.arifrgilang.unpadmobile.BuildConfig
+import com.arifrgilang.presentation.BuildConfig
 import okhttp3.Credentials
 import org.koin.dsl.module
 

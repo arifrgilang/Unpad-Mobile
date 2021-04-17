@@ -15,9 +15,9 @@ object PausRetrofitFactory {
 
     fun provideHttpLoggingInterceptor(
         isDebug: Boolean
-    ) : HttpLoggingInterceptor {
+    ): HttpLoggingInterceptor {
         return HttpLoggingInterceptor().apply {
-            level = if(isDebug)
+            level = if (isDebug)
                 HttpLoggingInterceptor.Level.BODY
             else
                 HttpLoggingInterceptor.Level.NONE
@@ -26,7 +26,7 @@ object PausRetrofitFactory {
 
     fun provideOkHttpClientBuilder(
         httpLoggingInterceptor: HttpLoggingInterceptor,
-    ) : OkHttpClient.Builder =
+    ): OkHttpClient.Builder =
         OkHttpClient.Builder()
             .connectTimeout(DEFAULT_CONNECT_TIME_OUT, TimeUnit.MILLISECONDS)
             .readTimeout(DEFAULT_READ_TIME_OUT, TimeUnit.MILLISECONDS)
@@ -34,7 +34,7 @@ object PausRetrofitFactory {
 
     fun provideRetrofitBuilder(
         baseUrl: String
-    ) : Retrofit.Builder =
+    ): Retrofit.Builder =
         Retrofit.Builder()
             .baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create())

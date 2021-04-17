@@ -9,10 +9,10 @@ import kotlinx.coroutines.flow.Flow
  */
 interface PausRepository {
     suspend fun getAccessToken(
-            grantType: String,
-            redirectUri: String,
-            code: String,
-            clientId: String,
-            clientSecret: String
+        grantType: String,
+        redirectUri: String,
+        code: String,
+        clientId: String,
+        clientSecret: String
     ) : Flow<PausTokenDomainModel>
 }

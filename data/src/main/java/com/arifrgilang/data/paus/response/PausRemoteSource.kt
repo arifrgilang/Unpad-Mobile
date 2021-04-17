@@ -15,35 +15,35 @@ import kotlinx.coroutines.flow.asFlow
  */
 interface PausRemoteSource {
     suspend fun getAccessToken(
-            grantType: String,
-            redirectUri: String,
-            code: String,
-            clientId: String,
-            clientSecret: String
+        grantType: String,
+        redirectUri: String,
+        code: String,
+        clientId: String,
+        clientSecret: String
     ): Flow<PausTokenRepositoryModel>
 }
 
 @FlowPreview
 @ExperimentalCoroutinesApi
 class PausRemoteSourceImpl(
-        private val apiService: PausApi,
-        private val pausTokenRepositoryMapper: PausTokenResponseToRepositoryModelMapper,
+    private val apiService: PausApi,
+    private val pausTokenRepositoryMapper: PausTokenResponseToRepositoryModelMapper,
 ) : PausRemoteSource {
     private val pausTokenChannel = ConflatedBroadcastChannel<PausTokenRepositoryModel>()
 
     override suspend fun getAccessToken(
-            grantType: String,
-            redirectUri: String,
-            code: String,
-            clientId: String,
-            clientSecret: String
+        grantType: String,
+        redirectUri: String,
+        code: String,
+        clientId: String,
+        clientSecret: String
     ): Flow<PausTokenRepositoryModel> {
         val pausTokenResponse = apiService.getAccessToken(
-                grantType,
-                redirectUri,
-                code,
-                clientId,
-                clientSecret
+            grantType,
+            redirectUri,
+            code,
+            clientId,
+            clientSecret
         )
         val pausTokenRepositoryModel = pausTokenRepositoryMapper.toRepositoryModel(pausTokenResponse)
         pausTokenChannel.offer(pausTokenRepositoryModel)

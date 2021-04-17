@@ -8,7 +8,7 @@ import okhttp3.Response
 /**
  * Created by arifrgilang on 4/14/2021
  */
-class PausAuthInterceptor (private val authToken: String) : Interceptor {
+class PausAuthInterceptor(private val authToken: String) : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val original: Request = chain.request()
         val builder: Request.Builder = original.newBuilder()

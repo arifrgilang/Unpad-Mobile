@@ -27,10 +27,8 @@ android {
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-//            buildConfigField "String", "BASE_URL", String.format("\"%s\"", baseUrl)
         }
         debug {
-//            buildConfigField "String", "BASE_URL", String.format("\"%s\"", baseUrl)
         }
     }
     compileOptions {
@@ -39,5 +37,8 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+    buildFeatures {
+        dataBinding true
     }
 }

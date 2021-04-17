@@ -62,6 +62,7 @@ object Dependencies {
     }
 
     object AndroidX {
+        const val browser = "androidx.browser:browser:${Version.browser}"
         const val fragment = "androidx.fragment:fragment:${Version.androidx}"
         const val core = "androidx.core:core:${Version.androidx}"
         const val constraintlayout =

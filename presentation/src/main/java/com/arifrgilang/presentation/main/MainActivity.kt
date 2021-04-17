@@ -3,10 +3,9 @@ package com.arifrgilang.presentation.main
 import android.content.Intent
 import android.os.Bundle
 import androidx.core.view.isVisible
-import androidx.lifecycle.Observer
 import com.arifrgilang.presentation.BuildConfig
 import com.arifrgilang.presentation.R
-import com.arifrgilang.presentation.base.BaseBindingActivity
+import com.arifrgilang.presentation.util.base.BaseBindingActivity
 import com.arifrgilang.presentation.dashboard.DashboardActivity
 import com.arifrgilang.presentation.databinding.ActivityMainBinding
 import com.arifrgilang.presentation.util.Constant

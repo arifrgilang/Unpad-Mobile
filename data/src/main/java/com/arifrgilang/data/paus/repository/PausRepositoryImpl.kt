@@ -1,9 +1,11 @@
 package com.arifrgilang.data.paus.repository
 
 import com.arifrgilang.data.paus.repository.mapper.PausTokenRepositoryToDomainModelMapper
+import com.arifrgilang.data.paus.repository.mapper.StudentRepositoryToDomainModelMapper
 import com.arifrgilang.data.paus.response.PausRemoteSource
 import com.arifrgilang.domain.paus.PausRepository
 import com.arifrgilang.domain.paus.model.PausTokenDomainModel
+import com.arifrgilang.domain.paus.model.StudentDomainModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
@@ -13,7 +15,8 @@ import kotlinx.coroutines.flow.map
  */
 class PausRepositoryImpl(
     private val pausRemoteSource: PausRemoteSource,
-    private val pausTokenRepositoryToDomainModelMapper: PausTokenRepositoryToDomainModelMapper
+    private val pausTokenRepositoryToDomainModelMapper: PausTokenRepositoryToDomainModelMapper,
+    private val studentRepositoryToDomainModelMapper: StudentRepositoryToDomainModelMapper
 ) : PausRepository {
     override suspend fun getAccessToken(
         grantType: String,
@@ -31,4 +34,12 @@ class PausRepositoryImpl(
         ).map { pausTokenRepositoryModel ->
             pausTokenRepositoryToDomainModelMapper.toDomainModel(pausTokenRepositoryModel)
         }
+
+    override suspend fun getStudentData(
+        accessToken: String
+    ): Flow<StudentDomainModel> =
+        pausRemoteSource.getStudentData(accessToken)
+            .map { studentRepositoryModel ->
+                studentRepositoryToDomainModelMapper.toDomainModel(studentRepositoryModel)
+            }
 }

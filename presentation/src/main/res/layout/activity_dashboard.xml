@@ -4,13 +4,73 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="student"
+            type="com.arifrgilang.presentation.dashboard.model.StudentDataUiModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".dashboard.DashboardActivity">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <ProgressBar
+            android:id="@+id/pb_dashboard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/iv_dashboard_student"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+
+            android:imageUrl="@{student.imageUrl}"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="16dp"/>
+
+        <LinearLayout
+            android:id="@+id/ll_dashboard_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+
+            android:layout_margin="16dp"
+            android:layout_below="@id/iv_dashboard_student">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{`Paus Name: ` + student.pausName}"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{`Name: ` + student.name}"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{`gender: ` + student.gender}"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{`Entry Year: ` + student.entryYear}"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{`Phone Number: ` + student.phoneNumber}"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{`Email: ` + student.email}"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{`NPM: ` + student.npm}"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{`Faculty: ` + student.faculty}"/>
+        </LinearLayout>
+    </RelativeLayout>
 </layout>

@@ -14,12 +14,16 @@ class UserManager {
         Hawk.put(ACCESS_TOKEN, accesToken)
     }
 
-    fun isSessionActive(): Boolean {
+    fun isSessionActive(): Boolean? {
         return Hawk.get(IS_USER_LOGGED_IN)
     }
 
     fun endUserSession() {
         Hawk.put(IS_USER_LOGGED_IN, false)
         Hawk.delete(ACCESS_TOKEN)
+    }
+
+    fun getUserAccessToken(): String {
+        return Hawk.get(ACCESS_TOKEN)
     }
 }

@@ -22,4 +22,7 @@ dependencies {
 
     // Timber
     implementation Dependencies.Timber.timber
+
+    // Hawk
+    implementation Dependencies.Hawk.hawk
 }

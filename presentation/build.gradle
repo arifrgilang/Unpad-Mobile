@@ -20,16 +20,30 @@ android {
         versionName Version.versionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+        multiDexEnabled true
     }
 
     buildTypes {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "BASE_URL_PAUS", String.format("\"%s\"", baseUrlPaus)
+            buildConfigField "String", "BASE_URL_SIAT", String.format("\"%s\"", baseUrlSiat)
+            buildConfigField "String", "CLIENT_ID", String.format("\"%s\"", clientId)
+            buildConfigField "String", "CLIENT_SECRET", String.format("\"%s\"", clientSecret)
+            buildConfigField "String", "REDIRECT_URI", String.format("\"%s\"", redirectUri)
+            buildConfigField "String", "PAUS_SCOPE", String.format("\"%s\"", scope)
+            buildConfigField "String", "PAUS_GRANT_TYPE", String.format("\"%s\"", grantType)
         }
 
         debug {
-
+            buildConfigField "String", "BASE_URL_PAUS", String.format("\"%s\"", baseUrlPaus)
+            buildConfigField "String", "BASE_URL_SIAT", String.format("\"%s\"", baseUrlSiat)
+            buildConfigField "String", "CLIENT_ID", String.format("\"%s\"", clientId)
+            buildConfigField "String", "CLIENT_SECRET", String.format("\"%s\"", clientSecret)
+            buildConfigField "String", "REDIRECT_URI", String.format("\"%s\"", redirectUri)
+            buildConfigField "String", "PAUS_SCOPE", String.format("\"%s\"", scope)
+            buildConfigField "String", "PAUS_GRANT_TYPE", String.format("\"%s\"", grantType)
         }
     }
 
@@ -45,4 +59,10 @@ android {
     buildFeatures {
         dataBinding true
     }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
 }

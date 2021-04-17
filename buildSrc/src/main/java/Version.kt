@@ -19,6 +19,7 @@ object Version {
     const val koin = "2.1.6"
 
     // AndroidX
+    const val browser = "1.3.0"
     const val recyclerView = "1.1.0"
     const val androidx = "1.3.1"
     const val constraintLayout = "1.1.3"

@@ -28,6 +28,9 @@ object Version {
     const val materialDesign = "1.2.0"
     const val swipeRefresh = "1.1.0"
 
+    // Ui Related
+    const val circularImage = "4.0.2"
+
     // Multidex
     const val multidex = "1.0.3"
 

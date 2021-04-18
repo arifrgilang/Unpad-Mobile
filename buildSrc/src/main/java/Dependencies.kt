@@ -13,6 +13,10 @@ object Dependencies {
         const val kotlin_script = "org.jetbrains.kotlin:kotlin-script-runtime:${Version.kotlin}"
     }
 
+    object Ui {
+        const val circularImage = "com.mikhaellopez:circularimageview:${Version.circularImage}"
+    }
+
     object Multidex {
         const val multidex = "com.android.support:multidex:${Version.multidex}"
     }

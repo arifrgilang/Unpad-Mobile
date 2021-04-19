@@ -18,6 +18,9 @@ object Version {
     // Koin
     const val koin = "2.1.6"
 
+    // Firebase
+    const val bom = "27.0.0"
+
     // AndroidX
     const val browser = "1.3.0"
     const val recyclerView = "1.1.0"

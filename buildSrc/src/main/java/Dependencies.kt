@@ -21,6 +21,13 @@ object Dependencies {
         const val multidex = "com.android.support:multidex:${Version.multidex}"
     }
 
+    object Firebase {
+        const val analytics = "com.google.firebase:firebase-analytics-ktx"
+        const val bom = "com.google.firebase:firebase-bom:${Version.bom}"
+        const val perf = "com.google.firebase:firebase-perf-ktx"
+        const val crashlytics = "com.google.firebase:firebase-crashlytics-ktx"
+    }
+
     object Module {
         const val data = ":data"
         const val domain = ":domain"

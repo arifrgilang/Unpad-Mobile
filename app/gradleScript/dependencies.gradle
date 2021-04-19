@@ -20,6 +20,12 @@ dependencies {
     implementation Dependencies.AndroidX.materialDesign
     implementation Dependencies.AndroidX.legacySupport
 
+    // Firebase
+    implementation Dependencies.Firebase.analytics
+    implementation platform(Dependencies.Firebase.bom)
+    implementation Dependencies.Firebase.perf
+    implementation Dependencies.Firebase.crashlytics
+
     // Timber
     implementation Dependencies.Timber.timber
 

@@ -3,7 +3,7 @@
     package="com.arifrgilang.presentation">
 
     <application>
-        <activity android:name=".dashboard.DashboardActivity"></activity>
+        <activity android:name=".dashboard.DashboardActivity"/>
         <activity android:name=".main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -3,6 +3,8 @@ package com.arifrgilang.presentation.main
 import android.content.Intent
 import android.os.Bundle
 import androidx.core.view.isVisible
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI
 import com.arifrgilang.presentation.BuildConfig
 import com.arifrgilang.presentation.R
 import com.arifrgilang.presentation.util.base.BaseBindingActivity
@@ -16,12 +18,13 @@ import timber.log.Timber
 import java.util.UUID
 
 class MainActivity : BaseBindingActivity<ActivityMainBinding>() {
+    private lateinit var navHostFragment: NavHostFragment
     private val viewModel by viewModel<MainViewModel>()
     override fun contentView(): Int = R.layout.activity_main
 
     override fun setupData(savedInstanceState: Bundle?) {
-        setViewModelObservers()
-        viewModel.checkUserToken()
+//        setViewModelObservers()
+//        viewModel.checkUserToken()
     }
 
     private fun setViewModelObservers() {
@@ -55,19 +58,22 @@ class MainActivity : BaseBindingActivity<ActivityMainBinding>() {
     }
 
     private fun showLoading(isLoading: Boolean) {
-        binding.btnLogin.isVisible = !isLoading
-        binding.pbLogin.isVisible = isLoading
+//        binding.btnLogin.isVisible = !isLoading
+//        binding.pbLogin.isVisible = isLoading
     }
 
     override fun setupView() {
-        binding.btnLogin.setOnClickListener {
-            val uniqueState = UUID.randomUUID().toString()
-            val intent = Intent(
-                Intent.ACTION_VIEW,
-                Constant.pausOAuthUri(uniqueState)
-            )
-            startActivity(intent)
-        }
+        navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+
+//        binding.btnLogin.setOnClickListener {
+//            val uniqueState = UUID.randomUUID().toString()
+//            val intent = Intent(
+//                Intent.ACTION_VIEW,
+//                Constant.pausOAuthUri(uniqueState)
+//            )
+//            startActivity(intent)
+//        }
     }
 
     override fun onResume() {

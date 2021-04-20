@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "237646986238",
+    "project_id": "unpad-mobile-9336f",
+    "storage_bucket": "unpad-mobile-9336f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:237646986238:android:4e5538a8203e0cc4e35eaf",
+        "android_client_info": {
+          "package_name": "com.arifrgilang.presentation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "237646986238-ilop7cpo5rlquhl0hoq9a6ija55p75fi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.arifrgilang.presentation",
+            "certificate_hash": "6c964db289f9d4e4c505c8e312de80c477e92f0a"
+          }
+        },
+        {
+          "client_id": "237646986238-pei5csjd8b9sji0lle62f4tfor1gmuut.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJ7c9xQu7c0DuumdC9ZIHVumcVhfqi6ss"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "237646986238-pei5csjd8b9sji0lle62f4tfor1gmuut.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

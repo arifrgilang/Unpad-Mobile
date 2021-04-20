@@ -1,6 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.UnpadMobile" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.UnpadMobile" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
         <!-- Primary brand color. -->
         <item name="colorPrimary">#3b83c0</item>
         <item name="colorPrimaryVariant">#3370a5</item>

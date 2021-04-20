@@ -22,6 +22,11 @@ class MainActivity : BaseBindingActivity<ActivityMainBinding>() {
     private val viewModel by viewModel<MainViewModel>()
     override fun contentView(): Int = R.layout.activity_main
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.Theme_UnpadMobile)
+        super.onCreate(savedInstanceState)
+    }
+
     override fun setupData(savedInstanceState: Bundle?) {
 //        setViewModelObservers()
 //        viewModel.checkUserToken()

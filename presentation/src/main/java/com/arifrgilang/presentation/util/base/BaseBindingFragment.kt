@@ -1,4 +1,4 @@
-package com.arifrgilang.presentation.base
+package com.arifrgilang.presentation.util.base
 
 import android.os.Bundle
 import android.view.LayoutInflater

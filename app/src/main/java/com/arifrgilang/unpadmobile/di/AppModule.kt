@@ -24,15 +24,15 @@ val appModule = module {
         PausRetrofitFactory.provideRetrofitBuilder(BuildConfig.BASE_URL_PAUS)
     }
 
-    single {
-        PausAuthInterceptor(
-            Credentials.basic(BuildConfig.CLIENT_ID, BuildConfig.CLIENT_SECRET)
-        )
-    }
+//    single {
+//        PausAuthInterceptor(
+//            Credentials.basic(BuildConfig.CLIENT_ID, BuildConfig.CLIENT_SECRET)
+//        )
+//    }
 
     single {
         PausRetrofitFactory.providePausService(
-            PausApi::class.java, get(), get(), get()
+            PausApi::class.java, get(), get()
         )
     }
 }

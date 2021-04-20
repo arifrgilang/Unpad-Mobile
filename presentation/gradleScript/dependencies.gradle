@@ -17,6 +17,9 @@ dependencies {
     implementation Dependencies.AndroidX.legacySupport
     implementation Dependencies.AndroidX.swipeRefresh
 
+    // Ui
+    implementation Dependencies.Ui.circularImage
+
     //Koin
     implementation Dependencies.Koin.koin
 

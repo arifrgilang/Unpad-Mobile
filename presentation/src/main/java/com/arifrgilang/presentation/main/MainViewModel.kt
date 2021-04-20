@@ -76,7 +76,6 @@ class MainViewModelImpl(
             }.collect { pausTokenDomainModel ->
                 val pausTokenUiModel =
                     pausTokenDomainToUiModelMapper.toUiModel(pausTokenDomainModel)
-                Timber.d(pausTokenUiModel.accessToken)
                 _pausToken.postValue(pausTokenUiModel)
                 _isLoading.value = false
             }
@@ -89,8 +88,8 @@ class MainViewModelImpl(
     }
 
     override fun checkUserToken() {
-        if(userManager.isSessionActive()){
-            isLoggedInChannel.offer(eventOf(true))
+        userManager.isSessionActive()?.let{ isActive ->
+            if(isActive) isLoggedInChannel.offer(eventOf(true))
         }
     }
 }

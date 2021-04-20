@@ -13,8 +13,19 @@ object Dependencies {
         const val kotlin_script = "org.jetbrains.kotlin:kotlin-script-runtime:${Version.kotlin}"
     }
 
+    object Ui {
+        const val circularImage = "com.mikhaellopez:circularimageview:${Version.circularImage}"
+    }
+
     object Multidex {
         const val multidex = "com.android.support:multidex:${Version.multidex}"
+    }
+
+    object Firebase {
+        const val analytics = "com.google.firebase:firebase-analytics-ktx"
+        const val bom = "com.google.firebase:firebase-bom:${Version.bom}"
+        const val perf = "com.google.firebase:firebase-perf-ktx"
+        const val crashlytics = "com.google.firebase:firebase-crashlytics-ktx"
     }
 
     object Module {

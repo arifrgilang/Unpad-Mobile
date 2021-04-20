@@ -1,9 +1,8 @@
 package com.arifrgilang.data.service.paus
 
 import com.arifrgilang.data.paus.response.model.PausTokenResponse
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.POST
+import com.arifrgilang.data.paus.response.model.StudentResponse
+import retrofit2.http.*
 
 
 /**
@@ -19,4 +18,9 @@ interface PausApi {
         @Field("client_id") clientId: String,
         @Field("client_secret") clientSecret: String
     ): PausTokenResponse
+
+    @GET("/api")
+    suspend fun getStudentData(
+        @Header("Authorization") accessToken: String
+    ): StudentResponse
 }

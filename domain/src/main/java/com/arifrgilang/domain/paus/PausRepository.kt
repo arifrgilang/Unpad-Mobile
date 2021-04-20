@@ -1,6 +1,7 @@
 package com.arifrgilang.domain.paus
 
 import com.arifrgilang.domain.paus.model.PausTokenDomainModel
+import com.arifrgilang.domain.paus.model.StudentDomainModel
 import kotlinx.coroutines.flow.Flow
 
 
@@ -15,4 +16,8 @@ interface PausRepository {
         clientId: String,
         clientSecret: String
     ) : Flow<PausTokenDomainModel>
+
+    suspend fun getStudentData(
+        accessToken: String
+    ) : Flow<StudentDomainModel>
 }

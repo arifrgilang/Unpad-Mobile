@@ -41,14 +41,15 @@ object PausRetrofitFactory {
 
     fun <S> providePausService(
         serviceClass: Class<S>?,
-        authInterceptor: PausAuthInterceptor,
+//        authInterceptor: PausAuthInterceptor,
         httpClientBuilder: OkHttpClient.Builder,
         retrofitBuilder: Retrofit.Builder
     ): S {
-        if (!httpClientBuilder.interceptors().contains(authInterceptor)) {
-            httpClientBuilder.addInterceptor(authInterceptor)
-            retrofitBuilder.client(httpClientBuilder.build())
-        }
+//        if (!httpClientBuilder.interceptors().contains(authInterceptor)) {
+//            httpClientBuilder.addInterceptor(authInterceptor)
+//            retrofitBuilder.client(httpClientBuilder.build())
+//        }
+        retrofitBuilder.client(httpClientBuilder.build())
         return retrofitBuilder.build().create(serviceClass)
     }
 

@@ -62,7 +62,6 @@ jobs:
         uses: actions/setup-java@v2.0.0
         with: 
           java-version: 1.8
-          distribution: jdk
       - name: Build with gradle
         run: ./gradlew build
       - name: Upload APK

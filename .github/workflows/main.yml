@@ -19,14 +19,6 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    env: 
-      BASE_URL_PAUS: ${{ secrets.BASE_URL_PAUS }}
-      BASE_URL_SIAT: ${{ secrets.BASE_URL_SIAT }}
-      CLIENT_ID: ${{ secrets.CLIENT_ID }}
-      CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-      PAUS_GRANT_TYPE: ${{ secrets.PAUS_GRANT_TYPE }}
-      PAUS_SCOPE: ${{ secrets.PAUS_SCOPE }}
-      REDIRECT_URI: ${{ secrets.REDIRECT_URI }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -35,16 +27,24 @@ jobs:
         uses: actions/checkout@v2
         
       - name: Setup env variables
+        env: 
+          BASE_URL_PAUS: ${{ secrets.BASE_URL_PAUS }}
+          BASE_URL_SIAT: ${{ secrets.BASE_URL_SIAT }}
+          CLIENT_ID: ${{ secrets.CLIENT_ID }}
+          CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+          PAUS_GRANT_TYPE: ${{ secrets.PAUS_GRANT_TYPE }}
+          PAUS_SCOPE: ${{ secrets.PAUS_SCOPE }}
+          REDIRECT_URI: ${{ secrets.REDIRECT_URI }}
       - run: cd presentation
-      - run: touch gradle.properties
-      - run: echo -e "$BASE_URL_PAUS" >> gradle.properties
-      - run: echo -e "$BASE_URL_SIAT" >> gradle.properties
-      - run: echo -e "$CLIENT_ID" >> gradle.properties
-      - run: echo -e "$CLIENT_SECRET" >> gradle.properties
-      - run: echo -e "$PAUS_GRANT_TYPE" >> gradle.properties
-      - run: echo -e "$PAUS_SCOPE" >> gradle.properties
-      - run: echo -e "$REDIRECT_URI" >> gradle.properties
-      - run: cd ..
+             touch gradle.properties
+             echo -e "$BASE_URL_PAUS" >> gradle.properties
+             echo -e "$BASE_URL_SIAT" >> gradle.properties
+             echo -e "$CLIENT_ID" >> gradle.properties
+             echo -e "$CLIENT_SECRET" >> gradle.properties
+             echo -e "$PAUS_GRANT_TYPE" >> gradle.properties
+             echo -e "$PAUS_SCOPE" >> gradle.properties
+             echo -e "$REDIRECT_URI" >> gradle.properties
+             cd ..
       
       - name: Setup JDK
         uses: actions/setup-java@v2.0.0

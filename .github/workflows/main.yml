@@ -23,27 +23,41 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Setup env variables
+      - uses: actions/checkout@v2
+      - name: Move directory 
+        run: cd presentation
+      - name: Create env file
+        run: touch gradle.properties
+      - name: Setup base url paus
         env: 
           BASE_URL_PAUS: ${{ secrets.BASE_URL_PAUS }}
+        run: echo -e "$BASE_URL_PAUS" >> gradle.properties
+      - name: Setup base url siat
+        env: 
           BASE_URL_SIAT: ${{ secrets.BASE_URL_SIAT }}
+        run: echo -e "$BASE_URL_SIAT" >> gradle.properties
+      - name: Setup client id
+        env: 
           CLIENT_ID: ${{ secrets.CLIENT_ID }}
+        run: echo -e "$CLIENT_ID" >> gradle.properties
+      - name: Setup client secret
+        env: 
           CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+        run: echo -e "$CLIENT_SECRET" >> gradle.properties
+      - name: Setup grant type
+        env: 
           PAUS_GRANT_TYPE: ${{ secrets.PAUS_GRANT_TYPE }}
+        run: echo -e "$PAUS_GRANT_TYPE" >> gradle.properties
+      - name: Setup paus scope
+        env: 
           PAUS_SCOPE: ${{ secrets.PAUS_SCOPE }}
+        run: echo -e "$PAUS_SCOPE" >> gradle.properties
+      - name: Setup redirect uri
+        env: 
           REDIRECT_URI: ${{ secrets.REDIRECT_URI }}
-      - run: cd presentation
-             touch gradle.properties
-             echo -e "$BASE_URL_PAUS" >> gradle.properties
-             echo -e "$BASE_URL_SIAT" >> gradle.properties
-             echo -e "$CLIENT_ID" >> gradle.properties
-             echo -e "$CLIENT_SECRET" >> gradle.properties
-             echo -e "$PAUS_GRANT_TYPE" >> gradle.properties
-             echo -e "$PAUS_SCOPE" >> gradle.properties
-             echo -e "$REDIRECT_URI" >> gradle.properties
-             cd ..
+        run: echo -e "$REDIRECT_URI" >> gradle.properties
+      - name: goback
+        run: cd ..
       - name: Setup JDK
         uses: actions/setup-java@v2.0.0
         with: 

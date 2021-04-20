@@ -18,6 +18,9 @@ object Version {
     // Koin
     const val koin = "2.1.6"
 
+    // Firebase
+    const val bom = "27.0.0"
+
     // AndroidX
     const val browser = "1.3.0"
     const val recyclerView = "1.1.0"
@@ -27,6 +30,9 @@ object Version {
     const val legacySupport = "1.0.0"
     const val materialDesign = "1.2.0"
     const val swipeRefresh = "1.1.0"
+
+    // Ui Related
+    const val circularImage = "4.0.2"
 
     // Multidex
     const val multidex = "1.0.3"

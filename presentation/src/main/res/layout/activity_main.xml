@@ -11,21 +11,59 @@
         android:id="@+id/rl_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.arifrgilang.presentation.main.MainActivity">
+        tools:context="com.arifrgilang.presentation.main.MainActivity"
 
-        <Button
-            android:id="@+id/btn_login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Login with PAuS"
-            android:layout_centerInParent="true"/>
+        android:background="@color/paus_dark">
 
-        <ProgressBar
-            android:id="@+id/pb_login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:visibility="gone"/>
+<!--        <ImageView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="?android:attr/actionBarSize"-->
+<!--            android:src="@drawable/text_unpad_mobile"-->
+<!--            android:padding="10dp"-->
+<!--            android:layout_centerHorizontal="true"/>-->
+<!--        -->
+        <View
+            android:id="@+id/upper_view"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:background="@android:color/transparent"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:src="@drawable/logo_unpad"
+
+                android:padding="64dp"
+                app:layout_constraintHeight_percent="0.5"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/nav_host_fragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:layout_below="@id/upper_view"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/main_nav_graph"/>
+
+<!--        <Button-->
+<!--            android:id="@+id/btn_login"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Login with PAuS"-->
+<!--            android:layout_centerInParent="true"/>-->
+
+<!--        <ProgressBar-->
+<!--            android:id="@+id/pb_login"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_centerInParent="true"-->
+<!--            android:visibility="gone"/>-->
 
     </RelativeLayout>
 </layout>

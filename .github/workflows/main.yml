@@ -19,6 +19,14 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    env: 
+      BASE_URL_PAUS: ${{ secrets.BASE_URL_PAUS }}
+      BASE_URL_SIAT: ${{ secrets.BASE_URL_SIAT }}
+      CLIENT_ID: ${{ secrets.CLIENT_ID }}
+      CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+      PAUS_GRANT_TYPE: ${{ secrets.PAUS_GRANT_TYPE }}
+      PAUS_SCOPE: ${{ secrets.PAUS_SCOPE }}
+      REDIRECT_URI: ${{ secrets.REDIRECT_URI }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:

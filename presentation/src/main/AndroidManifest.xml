@@ -3,6 +3,7 @@
     package="com.arifrgilang.presentation">
 
     <application>
+        <activity android:name=".webview.WebViewActivity"></activity>
         <activity android:name=".dashboard.DashboardActivity" />
         <activity
             android:name=".main.MainActivity"

@@ -3,9 +3,10 @@ package com.arifrgilang.presentation.dashboard
 import android.os.Bundle
 import androidx.core.view.isVisible
 import com.arifrgilang.presentation.R
-import com.arifrgilang.presentation.dashboard.model.StudentUiModel
+import com.arifrgilang.presentation.main.fragment.dashboard.model.StudentUiModel
 import com.arifrgilang.presentation.util.base.BaseBindingActivity
 import com.arifrgilang.presentation.databinding.ActivityDashboardBinding
+import com.arifrgilang.presentation.main.fragment.dashboard.DashboardViewModel
 import com.arifrgilang.presentation.util.observeEvent
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

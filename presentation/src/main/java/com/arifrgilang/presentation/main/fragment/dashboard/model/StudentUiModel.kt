@@ -1,4 +1,4 @@
-package com.arifrgilang.presentation.dashboard.model
+package com.arifrgilang.presentation.main.fragment.dashboard.model
 
 import com.arifrgilang.domain.paus.model.StudentDataDomainModel
 

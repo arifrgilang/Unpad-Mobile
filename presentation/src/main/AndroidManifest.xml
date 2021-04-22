@@ -3,7 +3,8 @@
     package="com.arifrgilang.presentation">
 
     <application>
-        <activity android:name=".webview.WebViewActivity"></activity>
+        <activity android:name=".pauslogin.PausLoginActivity"></activity>
+        <activity android:name=".webview.WebViewActivity" />
         <activity android:name=".dashboard.DashboardActivity" />
         <activity
             android:name=".main.MainActivity"

@@ -6,7 +6,7 @@
     <data>
         <variable
             name="student"
-            type="com.arifrgilang.presentation.dashboard.model.StudentDataUiModel" />
+            type="com.arifrgilang.presentation.main.fragment.dashboard.model.StudentDataUiModel" />
     </data>
 
     <RelativeLayout

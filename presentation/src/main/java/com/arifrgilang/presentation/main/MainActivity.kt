@@ -81,18 +81,18 @@ class MainActivity : BaseBindingActivity<ActivityMainBinding>() {
 //        }
     }
 
-    override fun onResume() {
-        super.onResume()
-        intent?.data?.let{
-            if(it.toString().startsWith(BuildConfig.REDIRECT_URI)) {
-                if(it.getQueryParameter("code") != null){
-                    viewModel.getAccessToken(it.getQueryParameter("code").toString())
-                    Timber.d(it.getQueryParameter("code").toString())
-                } else if (it.getQueryParameter("error") != null){
-                    toast(it.getQueryParameter("error").toString())
-                    Timber.e(it.getQueryParameter("error").toString())
-                }
-            }
-        }
-    }
+//    override fun onResume() {
+//        super.onResume()
+//        intent?.data?.let{
+//            if(it.toString().startsWith(BuildConfig.REDIRECT_URI)) {
+//                if(it.getQueryParameter("code") != null){
+//                    viewModel.getAccessToken(it.getQueryParameter("code").toString())
+//                    Timber.d(it.getQueryParameter("code").toString())
+//                } else if (it.getQueryParameter("error") != null){
+//                    toast(it.getQueryParameter("error").toString())
+//                    Timber.e(it.getQueryParameter("error").toString())
+//                }
+//            }
+//        }
+//    }
 }

@@ -54,6 +54,21 @@ fun ImageView.loadImage(uri: String?, progressDrawable: CircularProgressDrawable
         .into(this)
 }
 
+fun ImageView.loadImageProfile(uri: String?, progressDrawable: CircularProgressDrawable){
+    val options = RequestOptions()
+        .placeholder(progressDrawable)
+        .diskCacheStrategy(DiskCacheStrategy.ALL)
+        .priority(Priority.HIGH)
+        .dontAnimate()
+        .dontTransform()
+
+    Glide.with(context)
+        .setDefaultRequestOptions(options)
+        .load(uri)
+        .error(ContextCompat.getDrawable(context, R.drawable.ic_profile_white))
+        .into(this)
+}
+
 fun ImageView.loadBadge(uri: String?, progressDrawable: CircularProgressDrawable){
     val options = RequestOptions()
     Glide.with(context)
@@ -87,6 +102,13 @@ fun getProgressDrawable(context: Context): CircularProgressDrawable {
 @BindingAdapter("android:imageUrl")
 fun loadImage(view: ImageView, url: String?){
     view.loadImage(url,
+        getProgressDrawable(view.context)
+    )
+}
+
+@BindingAdapter("android:imageUrlProfile")
+fun loadImageProfile(view: ImageView, url: String?){
+    view.loadImageProfile(url,
         getProgressDrawable(view.context)
     )
 }

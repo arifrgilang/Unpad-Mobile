@@ -1,9 +1,9 @@
 package com.arifrgilang.presentation.di
 
-import com.arifrgilang.presentation.dashboard.DashboardViewModel
-import com.arifrgilang.presentation.dashboard.DashboardViewModelImpl
-import com.arifrgilang.presentation.dashboard.mapper.StudentDomainToUiModelMapper
-import com.arifrgilang.presentation.dashboard.mapper.StudentDomainToUiModelMapperImpl
+import com.arifrgilang.presentation.main.fragment.dashboard.DashboardViewModel
+import com.arifrgilang.presentation.main.fragment.dashboard.DashboardViewModelImpl
+import com.arifrgilang.presentation.main.fragment.dashboard.mapper.StudentDomainToUiModelMapper
+import com.arifrgilang.presentation.main.fragment.dashboard.mapper.StudentDomainToUiModelMapperImpl
 import com.arifrgilang.presentation.main.MainViewModel
 import com.arifrgilang.presentation.main.MainViewModelImpl
 import com.arifrgilang.presentation.main.mapper.PausTokenDomainToUiModelMapper
@@ -38,6 +38,6 @@ val presentationModule = module {
     }
 
     viewModel<DashboardViewModel> {
-        DashboardViewModelImpl(get(), get(), get())
+        DashboardViewModelImpl(get(), get(), get(), get(), get())
     }
 }

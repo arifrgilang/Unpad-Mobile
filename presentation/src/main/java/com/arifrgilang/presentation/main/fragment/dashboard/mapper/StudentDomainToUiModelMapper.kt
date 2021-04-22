@@ -1,8 +1,8 @@
-package com.arifrgilang.presentation.dashboard.mapper
+package com.arifrgilang.presentation.main.fragment.dashboard.mapper
 
 import com.arifrgilang.domain.paus.model.StudentDomainModel
-import com.arifrgilang.presentation.dashboard.model.StudentDataUiModel
-import com.arifrgilang.presentation.dashboard.model.StudentUiModel
+import com.arifrgilang.presentation.main.fragment.dashboard.model.StudentDataUiModel
+import com.arifrgilang.presentation.main.fragment.dashboard.model.StudentUiModel
 
 
 /**

@@ -19,6 +19,8 @@ object Constant {
 
     const val ACCESS_TOKEN = "ACCESS_TOKEN"
     const val IS_USER_LOGGED_IN = "IS_USER_LOGGED_IN"
+    const val LOGIN_PAUS_REQUEST = 1001
+    const val LOGIN_PAUS_RESULT = "LOGIN_PAUS_RESULT"
 
     const val TITLE_REGULER = "Reguler Live Unpad"
     const val URL_REGULER = "https://reguler.live.unpad.ac.id/"

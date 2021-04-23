@@ -1,8 +1,5 @@
 package com.arifrgilang.presentation.main.fragment.dashboard.model
 
-import com.arifrgilang.domain.paus.model.StudentDataDomainModel
-
-
 /**
  * Created by arifrgilang on 4/17/2021
  */

@@ -29,9 +29,9 @@ val presentationModule = module {
         PausTokenDomainToUiModelMapperImpl()
     }
 
-    viewModel<MainViewModel> {
-        MainViewModelImpl(get(), get(), get())
-    }
+//    viewModel<MainViewModel> {
+//        MainViewModelImpl(get(), get(), get())
+//    }
 
     single<StudentDomainToUiModelMapper> {
         StudentDomainToUiModelMapperImpl()

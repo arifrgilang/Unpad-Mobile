@@ -51,14 +51,16 @@ class PausLoginActivity : BaseBindingActivity<ActivityPausLoginBinding>() {
                 val url = it.url.toString()
                 if(url.startsWith(BuildConfig.REDIRECT_URI)){
                     val code = it.url.getQueryParameter("code")
-                    setResult(Activity.RESULT_OK, Intent().apply {
-                        putExtra(LOGIN_PAUS_RESULT, code)
-                    })
+                    setResult(
+                        Activity.RESULT_OK,
+                        Intent().apply { putExtra(LOGIN_PAUS_RESULT, code) }
+                    )
                     finish()
                 }
             }
             return super.shouldOverrideUrlLoading(view, request)
         }
+
         override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
             super.onPageStarted(view, url, favicon)
             binding.progressBar.visible()

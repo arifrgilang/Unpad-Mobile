@@ -31,9 +31,11 @@ abstract class DashboardViewModel : ViewModel() {
     abstract val studentData: LiveData<StudentUiModel>
     abstract val isLoading: LiveData<Boolean>
     abstract val isError: LiveData<Event<Unit>>
+    abstract val isErrorToken: LiveData<Event<String>>
 
     abstract fun getAccessToken(code: String)
     abstract fun startSession(accessToken: String)
+    abstract fun endUserSession()
     abstract fun checkUserToken()
     abstract fun getStudentData()
 }
@@ -66,9 +68,19 @@ class DashboardViewModelImpl(
     override val isError: LiveData<Event<Unit>>
         get() = _isError
 
+    private val _isErrorToken = MediatorLiveData<Event<String>>()
+    override val isErrorToken: LiveData<Event<String>>
+        get() = _isErrorToken
+
     private val errorHandler = CoroutineExceptionHandler { _, exception ->
         Timber.e(exception.toString())
         _isLoading.value = false
+    }
+
+    private val errorHandlerStudent = CoroutineExceptionHandler { _, exception ->
+        Timber.e(exception.toString())
+        _isLoading.value = false
+        _isErrorToken.postValue(eventOf(exception.message!! + ". Please relogin!"))
     }
 
     override fun getAccessToken(code: String) {
@@ -98,6 +110,12 @@ class DashboardViewModelImpl(
         isLoggedInChannel.offer(eventOf(true))
     }
 
+    override fun endUserSession() {
+        userManager.endUserSession()
+        isLoggedInChannel.offer(eventOf(false))
+    }
+
+
     override fun checkUserToken() {
         userManager.isSessionActive()?.let{ isActive ->
             if(isActive) isLoggedInChannel.offer(eventOf(true))
@@ -105,17 +123,19 @@ class DashboardViewModelImpl(
     }
 
     override fun getStudentData() {
-        viewModelScope.launch(errorHandler) {
+        viewModelScope.launch(errorHandlerStudent) {
             _isLoading.value = true
             getStudentData.execute(
                 "Bearer " + userManager.getUserAccessToken()
             ).catch { throwable ->
                 Timber.e(throwable.toString())
                 _isError.postValue(eventOf(Unit))
+                _isErrorToken.postValue(eventOf(throwable.message!!))
                 _isLoading.value = false
             }.collect { studentDomainModel ->
                 val studentUiModel =
                     studentDomainToUiModelMapper.toUiModel(studentDomainModel)
+                Timber.d(studentUiModel.toString())
                 _studentData.postValue(studentUiModel)
                 _isLoading.value = false
             }

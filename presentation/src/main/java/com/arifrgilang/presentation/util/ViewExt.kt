@@ -2,18 +2,21 @@ package com.arifrgilang.presentation.util
 
 import android.content.Context
 import android.graphics.BitmapFactory
+import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
+import androidx.fragment.app.Fragment
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.arifrgilang.presentation.R
 import com.bumptech.glide.Glide
 import com.bumptech.glide.Priority
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
+import com.google.firebase.analytics.FirebaseAnalytics
 
 
 /**
@@ -33,6 +36,14 @@ fun Button.enable() {
 
 fun Button.disable() {
     isEnabled = false
+}
+
+fun Fragment.logFirebase() {
+    val bundle = Bundle().apply {
+        putString(FirebaseAnalytics.Param.SCREEN_NAME, this@logFirebase.javaClass.simpleName)
+        putString(FirebaseAnalytics.Param.SCREEN_CLASS, this@logFirebase.javaClass.simpleName)
+    }
+    FirebaseAnalytics.getInstance(this.requireContext()).logEvent(FirebaseAnalytics.Event.SCREEN_VIEW, bundle)
 }
 
 fun Context.toast(text: String) {

@@ -6,12 +6,15 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.DisplayMetrics
+import android.widget.Toast
 import androidx.core.view.isVisible
 import com.arifrgilang.presentation.R
 import com.arifrgilang.presentation.databinding.FragmentDashboardBinding
 import com.arifrgilang.presentation.main.fragment.dashboard.model.StudentUiModel
+import com.arifrgilang.presentation.main.fragment.profile.ProfileDialogFragment
 import com.arifrgilang.presentation.main.model.PausTokenUiModel
 import com.arifrgilang.presentation.pauslogin.PausLoginActivity
+import com.arifrgilang.presentation.util.*
 import com.arifrgilang.presentation.util.Constant.LOGIN_PAUS_REQUEST
 import com.arifrgilang.presentation.util.Constant.LOGIN_PAUS_RESULT
 import com.arifrgilang.presentation.util.Constant.TITLE_JALATISTA
@@ -27,7 +30,6 @@ import com.arifrgilang.presentation.util.Constant.URL_STUDENTS
 import com.arifrgilang.presentation.util.Constant.URL_UNPAD
 import com.arifrgilang.presentation.util.Constant.URL_USER_PACAR_
 import com.arifrgilang.presentation.util.base.BaseBindingFragment
-import com.arifrgilang.presentation.util.observeEvent
 import com.arifrgilang.presentation.webview.WebViewActivity
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -35,10 +37,12 @@ import timber.log.Timber
 
 class DashboardFragment : BaseBindingFragment<FragmentDashboardBinding>() {
     private lateinit var behavior: BottomSheetBehavior<*>
+    private lateinit var studentModel: StudentUiModel
     private val viewModel by viewModel<DashboardViewModel>()
     override fun contentView(): Int = R.layout.fragment_dashboard
 
     override fun setupData(savedInstanceState: Bundle?) {
+        logFirebase()
         setViewModelObservers()
         viewModel.checkUserToken()
     }
@@ -46,10 +50,18 @@ class DashboardFragment : BaseBindingFragment<FragmentDashboardBinding>() {
     private fun setViewModelObservers() {
         viewModel.isLoading.observe(this, ::showLoading)
         viewModel.isError.observeEvent(this, ::showError)
+        viewModel.isErrorToken.observeEvent(this, ::showErrorToken)
 
         viewModel.isLoggedIn.observeEvent(this, ::handleIsLogin)
         viewModel.pausToken.observe(this, ::startSession)
         viewModel.studentData.observe(this, ::bindStudent)
+    }
+
+    private fun showErrorToken(message: String) {
+        requireContext().toast(message)
+        Timber.d(message)
+        viewModel.endUserSession()
+        viewModel.checkUserToken()
     }
 
     private fun showLoading(isLoading: Boolean) {
@@ -57,7 +69,9 @@ class DashboardFragment : BaseBindingFragment<FragmentDashboardBinding>() {
         binding.pbProfile.isVisible = isLoading
     }
 
-    private fun showError(unit: Unit) { /* later*/ }
+    private fun showError(unit: Unit) {
+        Timber.d("Show error")
+    }
 
     private fun handleIsLogin(isLoggedIn: Boolean) {
         binding.ivProfile.isVisible = isLoggedIn
@@ -76,6 +90,8 @@ class DashboardFragment : BaseBindingFragment<FragmentDashboardBinding>() {
 
     private fun bindStudent(student: StudentUiModel) {
         binding.student = student.data
+        studentModel = student
+        Timber.d(student.toString())
     }
 
     override fun setupView() {
@@ -105,8 +121,21 @@ class DashboardFragment : BaseBindingFragment<FragmentDashboardBinding>() {
             )
         }
         binding.ivProfile.setOnClickListener {
-
+            showProfileDialog()
         }
+    }
+
+    private fun showProfileDialog() {
+        val dialog = ProfileDialogFragment(
+            studentModel,
+            object: ProfileDialogFragment.OnClickLogout {
+                override fun performLogout() {
+                    viewModel.endUserSession()
+                    requireContext().toast("Berhasil Logout!")
+                }
+            }
+        )
+        dialog.show(requireActivity().supportFragmentManager, "Profile Dialog")
     }
 
     private fun setupBottomSheet() {
@@ -139,6 +168,7 @@ class DashboardFragment : BaseBindingFragment<FragmentDashboardBinding>() {
                     val code = it.getStringExtra(LOGIN_PAUS_RESULT)
                     Timber.d(code)
                     viewModel.getAccessToken(code)
+                    requireContext().toast("Berhasil Login!")
                 }
             }
         }

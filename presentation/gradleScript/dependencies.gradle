@@ -17,6 +17,10 @@ dependencies {
     implementation Dependencies.AndroidX.legacySupport
     implementation Dependencies.AndroidX.swipeRefresh
 
+    // Firebase
+    implementation Dependencies.Firebase.analytics
+    implementation platform(Dependencies.Firebase.bom)
+
     // Ui
     implementation Dependencies.Ui.circularImage
 

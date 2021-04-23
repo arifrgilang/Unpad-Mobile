@@ -15,6 +15,7 @@ import com.arifrgilang.presentation.R
 import com.arifrgilang.presentation.databinding.ActivityWebViewBinding
 import com.arifrgilang.presentation.util.base.BaseBindingActivity
 import com.arifrgilang.presentation.util.gone
+import com.arifrgilang.presentation.util.logFirebase
 import com.arifrgilang.presentation.util.visible
 
 class WebViewActivity : BaseBindingActivity<ActivityWebViewBinding>() {
